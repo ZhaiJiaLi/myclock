@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆钟表</title>
+</head>
+<style>
+    .clock{
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        /*border:3px solid deepskyblue;*/
+        margin: 50px auto;
+        position: relative;
+        background: url("clockc.jpg") no-repeat center 5px;
+        background-size: cover;
+    }
+    .num{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 20px;
+    }
+    .circle{
+        width: 10px;
+        height: 10px;
+        background: #333333;
+        border-radius: 50%;
+        position: absolute;
+        top:194px;
+        left: 194px;
+    }
+    .clock div:nth-child(1), .clock div:nth-child(2), .clock div:nth-child(3), .clock div:nth-child(4) {
+        position: absolute;
+        -webkit-transform-origin: bottom;
+    }
+    .clock div:nth-child(1) {
+        top: 45px;
+        left: 197px;
+        width: 4px;
+        height: 160px;
+        border-top-right-radius: 50px;
+        background: #343339;
+    }
+    .clock div:nth-child(2) {
+        top: 80px;
+        left: 195px;
+        width: 6px;
+        height: 120px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: #343332;
+    }
+    .clock div:nth-child(3) {
+        top: 100px;
+        left: 195px;
+        width: 8px;
+        height: 100px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: #010001;
+    }
+    .clock div:nth-child(4) {
+        top: 189px;
+        left: 188px;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        background: rgba(237, 200, 45, 1);
+    }
+
+</style>
+<body>
+    <div class="clock">
+        <!--<div class="num">1</div>-->
+        <!--<div class="num">2</div>-->
+        <!--<div class="num">3</div>-->
+        <!--<div class="num">4</div>-->
+        <!--<div class="num">5</div>-->
+        <!--<div class="num">6</div>-->
+        <!--<div class="num">7</div>-->
+        <!--<div class="num">8</div>-->
+        <!--<div class="num">9</div>-->
+        <!--<div class="num">10</div>-->
+        <!--<div class="num">11</div>-->
+        <!--<div class="num">12</div>-->
+
+        <div class="h"></div>
+        <div class="m"></div>
+        <div class="s"></div>
+        <div class="circle"></div>
+    </div>
+</body>
+<script>
+    var hour = document.querySelector(".s");
+    var min = document.querySelector(".m");
+    var sec = document.querySelector(".h");
+    var timer = null;
+    function sport (){
+        var time = new Date();
+        sec.style.webkitTransform = 'rotate(' + time.getSeconds() * 6 + 'deg)';
+        min.style.webkitTransform = 'rotate(' + (time.getMinutes() + time.getSeconds() / 60) * 6 + 'deg)';
+        hour.style.WebkitTransform = 'rotate(' + (time.getHours() % 12 + time.getMinutes() / 60 + time.getSeconds() / 3600) * 30 + 'deg)';
+        console.log(sec.style.WebkitTransform);
+    }
+    sport ();
+    setInterval(sport, 1000);
+
+</script>
+</html>
